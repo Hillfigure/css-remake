@@ -1,0 +1,117 @@
+$blogOrange: #e17b77;
+$facebookBlue: #3b5998;
+$twitterBlue: #00aced;
+$githubBlack: #333;
+$linkedinBlue: #007bb6;
+
+$smallDevicesDown: 850px;
+
+@mixin createButton () {
+    height: 45px;
+    width: 45px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-decoration: none;
+    transition: all 350ms ease-in-out;
+    direction: ltr;
+    color: white;
+}
+
+@mixin effects($property: all, $duration: 0.2s, $timing: linear, $delay: 0s) {
+    transition-property: $property;
+    transition-duration: $duration;
+    transition-timing-function: $timing;
+    transition-delay: $delay;
+  }
+
+.social-container {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 40%;
+    right: 0px;
+    direction: rtl;
+
+    .fab {
+        padding-left: 5px;
+    }
+    
+    .fas {
+        padding-left: 2px;
+    }
+
+    .socTitle {
+        opacity: 0;
+        overflow: hidden;
+        transition: all 350ms ease-in-out;
+        color: white;
+        font-size: 1.1em;
+        font-weight: bold;
+    }
+    .social-btn-blog {
+        @include createButton();
+        background: $blogOrange;
+    }
+    
+    .social-btn-facebook {
+        @include createButton();
+        background: $facebookBlue;
+    }
+    
+    .social-btn-twitter {
+        @include createButton();
+        background: $twitterBlue;
+    }
+    
+    .social-btn-linkedin {
+        @include createButton();
+        background: $linkedinBlue;
+    }
+    .social-btn-github {
+        @include createButton();
+        background: $githubBlack;
+    }
+}
+
+@media only screen and (min-width: $smallDevicesDown) {
+    .social-btn-blog, .social-btn-facebook, .social-btn-twitter, .social-btn-linkedin, .social-btn-github{
+        background: black;
+        .fab {
+            color: white;
+            padding-left: 9px;
+        }
+        .fas {
+            padding-left: 2px;
+        }
+            &:hover {
+                width: 150px;
+                transition: all 350ms ease-in;
+                justify-content: space-around;
+                .socTitle {
+                    opacity: 1;
+                    transition: all 350ms ease-in-out;
+                    overflow: hidden;
+                } 
+            }
+    }
+    .social-btn-blog:hover {
+        background: $blogOrange;
+    }
+    .social-btn-facebook:hover {
+        background: $facebookBlue;
+    }
+    .social-btn-twitter:hover {
+        background: $twitterBlue;
+    }
+    .social-btn-linkedin:hover {
+        background: $linkedinBlue;
+    }
+    .social-btn-github:hover {
+        background: $githubBlack;
+    }
+}
+
+
+
+
